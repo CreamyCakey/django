@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from .models import Instruction
 from django.contrib.auth.decorators import login_required
 
-@login_required(login_url='main/login.html')
+@login_required(login_url='main/login')
 def homepage(request):
     return render(request, 'main/homepage.html')
 
@@ -42,7 +42,7 @@ def view_login(request):
 from django.shortcuts import render
 from .models import Instruction  # Assuming your model is imported from a module named models
 
-@login_required(login_url='main/login.html')
+@login_required(login_url='main/login')
 def home(request):
     # Check if the form is submitted with the 'locate' action
     if request.method == 'POST':
