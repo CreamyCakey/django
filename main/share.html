@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF=8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>On the Way we Trust</title>
+    <link rel="stylesheet" href="{% static 'css/share.css' %}">
+    <link rel="icon" type="image/x-icon" href="static/images/on the way we trust1.png">
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+}
+
+.header{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.70),rgba(0,0,0,0.70)),url(city.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.share{
+    width: 85%;
+    margin:auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 120px;
+    cursor: pointer;
+}
+
+.share ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative ;
+}
+
+.share ul li a{
+    text-decoration: none;
+    color: #fff;
+    text-transform: none;
+}
+
+.share ul li::after{
+    content: '';
+    height: 3px;
+    width: 0%;
+    background: #009688;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+.share ul li:hover::after{
+    width: 100%;
+}
+
+.content{
+    width: 100%;
+    position: absolute;
+    top: 14%;
+    transform: translateY(-50);
+    text-align: center;
+    color: #fff
+}
+
+.content h1{
+    font-size: 70px;
+    margin-top: 80px;
+}
+
+.content p{
+    margin: 20px auto;
+    font-weight: 100;
+    line-height: 25px;
+}
+
+.instruction-box {
+    width: 450px;;
+    height: 100px;
+    margin: 20px auto;
+    background-color: rgba(255, 255, 255, 0.226);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+    </style>
+</head>
+<body id ="bg" style="background-image: url('../static/assets/city.png')";>
+    <div class="header">
+        <div class="share">
+            <img src="static/assets/on the way we trust1.png" class="logo">
+            <ul>
+                <li><a href="{% url 'homepage' %}">Home</a></li>
+                <li><a href="{% url 'aboutus' %}">About</a></li>
+                <li><a href="{% url 'contacts' %}">Contact</a></li>
+                <li><a href="{% url 'share' %}">Share</a></li>
+                <li><a href="{% url 'accounts' %}">My Account</a></li>
+            </ul>
+        </div>
+    </div>    
+    <div class="content">
+        <h1>ON THE WAY WE TRUST</h1>
+        <p>"Navigate confidently with our expert guidance. 
+            <br> directions, personalized support—your seamless journey starts here."</p>
+            
+            <form action="{% url 'share' %}" method="POST">
+                {% csrf_token %}
+                <label for="location">New Location:</label>
+                <input type="text" id="location" name="origin" placeholder="Enter your location"><br><br>
+            
+                <label for="destination">New Destination:</label>
+                <input type="text" id="destination" name="destination" placeholder="Enter your destination"><br><br>
+            
+                <label for="instruction-box">Instruction:</label>
+                <br>
+                <input class="instruction-box" name="instruction" contenteditable="true" placeholder="Click to type your text here."></input>
+                <br>
+                <input type="submit" value="Submit">
+            </form>
+            
+    </div>
+</body>
+</html>

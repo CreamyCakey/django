@@ -1,0 +1,101 @@
+{%load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF=8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>On the Way we Trust</title>
+    <link rel="stylesheet" href="{% static 'css/signup.css'%}">
+    <link rel="icon" type="image/x-icon" href="static/images/the way we trust1.png">
+    <style>
+        body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(Jeep.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.signup{
+    width: 360px;
+    height: auto;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.3);
+    background-position: center;
+    padding: 20px;
+    border-radius: 13px;
+}
+
+.signup p{
+    text-align: center;
+    padding-top: 7px;
+    font-size: 15px;
+}
+
+h1{
+    text-align: center;
+}
+
+form{
+    width: 300px;
+    margin-left: 20px;
+}
+
+form label{
+    display: flex;
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+form input{
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border: 1px solid gray;
+    border-radius: 6px;
+    outline: none;
+}
+
+input[type="submit"]{
+    width: 320px;
+    height: 35px;
+    margin-top: 20px;
+    border: none;
+    background-color: #ff7200;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+input[type="submit"]{
+    color: white;
+    background: rgb(13, 211, 247);
+}
+</style>
+</head>
+<body id ="bg" style="background-image: url('../static/assets/Jeepney.jpg')";>
+    
+    <div class="signup">
+        <h1>Sign Up</h1>
+        <form method="POST" action="{% url 'signup' %}">  <!-- Make sure the action attribute is correct -->
+            {% csrf_token %}
+            <label>First Name</label>
+            <input type="text" name="fname" required>
+            <label>Last Name</label>
+            <input type="text" name="lname" required>
+            <label>Username</label>
+            <input type="text" name="uname" required>
+            <label>Email</label>
+            <input type="email" name="email" required autocomplete="off">
+            <label>Password</label>
+            <input type="password" name="password1" required>
+            <label>Confirm Password</label>
+            <input type="password" name="password2" required>
+            <input  type="submit" value="Submit">
+            <p>By clicking Sign up, you agree to our <a href="#">Terms</a> and <a href="#">Policy</a></p>
+            <p>Already have an Account? <a href="{% url 'login' %}">Login here</a></p>
+        </form>
+    </div>
+</body>
+</html>
