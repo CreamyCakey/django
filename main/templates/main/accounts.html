@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Account</title>
+    <link rel="stylesheet" href="{%static 'css/account.css'%}">
+    <link rel="icon" type="image/x-icon" href="{%static 'assets/city.png'%}">
+</head>
+<body>
+    <header>
+        <div class="header">
+            <img src="static/assets/on the way we trust1.png" class="logo">
+            <div class ="headerAcc">
+                <h1> My Account</h1>
+            </div>
+        </div>
+        <div class="logout-btn">
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit" name = 'logout' style="display: contents;":>Logout</button>
+            </form>
+        </div>
+        <section>
+            <div class="account-info">
+                <h2>Welcome</h2>
+                <p>User: </p>
+                <p>Email: </p>
+            </div>
+            <div class ='account-info' style="margin-top: 20px;">
+                <label for="origin" style="margin-top: 20px;">Origin:</label>
+                <input type="text" name="origin" style="margin-top: 20px" required>
+                <br>
+                <label for="destination" style = "margin-top: 20px;">Destination:</label>
+                <input type="text" name="destination" style="margin-top: 20px" required>
+                <br>
+                <label for="instruction">Instruction:</label>
+                <input type="text" name="instruction" style="margin-top: 20px" required>
+                <br>
+                <button type="submit" style="margin-top: 20px">Delete</button>
+                <button type ='submit'style="margin-left: 5px"> Save </button>  
+    
+            </div>
+        </section>
+    </header>
+
+
+</body>
+</html>

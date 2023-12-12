@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+<head>
+    <meta charset="UTF=8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>On the Way we Trust</title>
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/on the way we trust1.png' %}">
+    <script>
+        function redirectToNewPage() {
+            window.location.href = 'share.html';
+        }
+    </script>
+</head>
+<body style="background-image: url('../static/assets/city.png')";>
+    <div class="header">
+        <div class="homepage">
+            <img src="static/assets/on the way we trust1.png" class="logo">
+            <ul>
+                <li><a href="{% url 'homepage' %}">Home</a></li>
+                <li><a href="{% url 'aboutus' %}">About</a></li>
+                <li><a href="{% url 'contacts' %}">Contact</a></li>
+                <li><a href="{% url 'share' %}">Share</a></li>
+                <li><a href="{% url 'accounts' %}">My Account</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="content">
+        <h1>ON THE WAY WE TRUST</h1>
+        <p>"Navigate confidently with our expert guidance. 
+            <br> directions, personalized support—your seamless journey starts here."</p>
+            
+            <form action="{% url 'locate' %}" method="POST">
+                {% csrf_token %}
+                <label for="location">Your Location:</label>
+                <input type="text" id="location" name="origin" placeholder="Enter your location" required><br><br>
+            
+                <label for="destination">Destination:</label>
+                <input type="text" id="destination" name="destination" placeholder="Enter your destination" required><br><br>
+            
+                <input type="submit" value="Submit">
+            </form>
+            
+            <div class="instruction-box">
+                <textarea name="instructions" id="" cols="50" rows="6" readonly>
+
+                    {% if instructions %}
+                        {% for instruction in instructions %}
+Origin: {{ instruction.origin }}
+Destination: {{ instruction.destination }}
+Instruction: {{ instruction.instruction }}
+            
+                        {% endfor %}
+                    {% else %}
+No instructions found for the route from  "{{ origin }}" to "{{ destination }}".
+
+                    {% endif %}
+                </textarea>
+            </div>
+            
+    </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF=8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>On the Way we Trust</title>
+    <link rel="stylesheet" href="{% static 'css/share.css' %}">
+    <link rel="icon" type="image/x-icon" href="static/images/on the way we trust1.png">
+</head>
+<body id ="bg" style="background-image: url('../static/assets/city.png')";>
+    <div class="header">
+        <div class="share">
+            <img src="static/assets/on the way we trust1.png" class="logo">
+            <ul>
+                <li><a href="{% url 'homepage' %}">Home</a></li>
+                <li><a href="{% url 'aboutus' %}">About</a></li>
+                <li><a href="{% url 'contacts' %}">Contact</a></li>
+                <li><a href="{% url 'share' %}">Share</a></li>
+                <li><a href="{% url 'account' %}">My Account</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="content">
+        <h1>ON THE WAY WE TRUST</h1>
+        <p>"Navigate confidently with our expert guidance. 
+            <br> directions, personalized support—your seamless journey starts here."</p>
+            
+            <form action="{% url 'share' %}" method="POST">
+                {% csrf_token %}
+                <label for="location">New Location:</label>
+                <input type="text" id="location" name="origin" placeholder="Enter your location"><br><br>
+            
+                <label for="destination">New Destination:</label>
+                <input type="text" id="destination" name="destination" placeholder="Enter your destination"><br><br>
+            
+                <label for="instruction-box">Instruction:</label>
+                <br>
+                <input class="instruction-box" name="instruction" contenteditable="true" placeholder="Click to type your text here."></input>
+                <br>
+                <input type="submit" value="Submit">
+            </form>
+            
+    </div>
+</body>
+</html>

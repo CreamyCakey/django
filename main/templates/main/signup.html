@@ -1,0 +1,58 @@
+{%load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF=8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>On the Way we Trust</title>
+    <link rel="stylesheet" href="{% static 'css/signup.css'%}">
+    <link rel="icon" type="image/x-icon" href="static/images/the way we trust1.png">
+</head>
+<body id ="bg" style="background-image: url('../static/assets/Jeepney.jpg')";>
+    </header>
+    <!-- <div class="signup">
+        <h1>Sign Up</h1>
+        <form method="POST">
+        {% csrf_token %}
+        <label>First Name</label>
+        <input type="text"  name="fname" required>
+        <label>Last Name</label>
+        <input type ='text' name ="lname" required>
+        <label>Username</label>
+        <input type="text"  name="uname" required>
+        <label>Email</label>
+        <input type="email" name="email" required autocomplete="off">
+        <label>Passsword</label>
+        <input type="password" name="password1" required>
+        <label>Confrim Password</label>
+        <input type="password" name="password2" required>
+        <input type="submit" name="" value="submit">
+        <p>By clicking the Sign up, you agree to our 
+            <a href="">Terms</a> and <a href="#">Policy</a>
+            </p>
+            <p>Already have an Account? <a href="{%url 'login'%}">Login here</a></p>
+        </form>
+    </div> -->
+    <div class="signup">
+        <h1>Sign Up</h1>
+        <form method="POST" action="{% url 'signup' %}">  <!-- Make sure the action attribute is correct -->
+            {% csrf_token %}
+            <label>First Name</label>
+            <input type="text" name="fname" required>
+            <label>Last Name</label>
+            <input type="text" name="lname" required>
+            <label>Username</label>
+            <input type="text" name="uname" required>
+            <label>Email</label>
+            <input type="email" name="email" required autocomplete="off">
+            <label>Password</label>
+            <input type="password" name="password1" required>
+            <label>Confirm Password</label>
+            <input type="password" name="password2" required>
+            <input  type="submit" value="Submit">
+            <p>By clicking Sign up, you agree to our <a href="#">Terms</a> and <a href="#">Policy</a></p>
+            <p>Already have an Account? <a href="{% url 'login' %}">Login here</a></p>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.header{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.70),rgba(0,0,0,0.70)),url(city.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.homepage{
+    width: 85%;
+    margin:auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 120px;
+    cursor: pointer;
+}
+
+.homepage ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative ;
+}
+
+.homepage ul li a{
+    text-decoration: none;
+    color: #fff;
+    text-transform: none;
+}
+
+.homepage ul li::after{
+    content: '';
+    height: 3px;
+    width: 0%;
+    background: #009688;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+.homepage ul li:hover::after{
+    width: 100%;
+}
+
+.content{
+    width: 100%;
+    position: absolute;
+    top: 14%;
+    transform: translateY(-50);
+    text-align: center;
+    color: #fff
+}
+
+.content h1{
+    font-size: 70px;
+    margin-top: 80px;
+}
+
+.content p{
+    margin: 20px auto;
+    font-weight: 100;
+    line-height: 25px;
+}
+
+.instruction-box {
+    width: 450px;
+    height: 100px;
+    margin: 20px auto;
+    background-color: rgba(255, 255, 255, 0.226);
+    padding: 10px;
+    border-radius: 5px;
+}

@@ -1,0 +1,34 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF=8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>On the Way we Trust</title>
+    <link rel="stylesheet" href="{%static 'css/about.css'%}">
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/on the way we trust1.png' %}">
+    <script>
+        function redirectToNewPage() {
+            window.location.href = 'share.html';
+        }
+    </script>
+</head>
+<body style="background-image: url('../static/assets/city.png')";>
+    <div class="header">
+        <div class="homepage">
+            <img src="static/assets/on the way we trust1.png" class="logo">
+            <ul>
+                <li><a href="{% url 'homepage' %}">Home</a></li>
+                <li><a href="{% url 'contacts' %}">Contact</a></li>
+                <li><a href="{% url 'share' %}">Share</a></li>
+                <li><a href="{% url 'accounts' %}">My Account</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="content">
+        <h1>ABOUT US</h1>
+        <p>Welcome to On the Way we Trust! We're here to help you find your way with real, reliable advice. At On the Way we Trust, we're all about keeping things straightforward.<br> Our team works hard to give you honest recommendations and accurate information. Whether you're exploring new places, products, or hobbies, we've got you covered.<br> We're not about fancy words or fluff. Just real guidance you can count on. Your journey matters to us, and we're committed to being the trustworthy friend you turn to whenever you need guidance.<br> Join us at On the Way we Trust and let's navigate the world together, armed with genuine insights at every step.</p>
+            
+</body>
+</html>
